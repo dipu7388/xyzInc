@@ -1,0 +1,43 @@
+<form class="form" [formGroup]="dataForm" (ngSubmit)="submitForm()" novalidate>
+  <div id="panelEmail" class="panelEmail form-ele noPadding errorPnl">
+    <input
+      type="text"
+      id="textFieldEmail"
+      autocomplete="off"
+      maxlength="256"
+      class="email textFieldEmail"
+      placeholder="Email ID*"
+      formControlName="email"
+      [ngClass]="{ 'is-invalid': displayMessage.email }"
+    />
+    <span class="invalid-feedback">
+      {{ displayMessage.email }}
+    </span>
+  </div>
+  <div id="panelName" class="form-ele panelName errorPnl">
+    <input
+      id="name"
+      type="password"
+      id="textFieldName"
+      autocomplete="off"
+      maxlength="100"
+      class="name textFieldName"
+      placeholder="Password*"
+      formControlName="password"
+      [ngClass]="{ 'is-invalid': displayMessage.password }"
+    />
+    <span class="invalid-feedback">
+      {{ displayMessage.password }}
+    </span>
+  </div>
+  <div class="form-ele">
+    <button
+      id="submit-btn"
+      class="button req-demo btn-action"
+      type="submit"
+      [disabled]="!dataForm.valid"
+    >
+      {{ submitButtonValue }}
+    </button>
+  </div>
+</form>

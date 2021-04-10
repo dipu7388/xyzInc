@@ -1,0 +1,317 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.create{
+      background-color: darkgreen;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      z-index: 10;
+      position: fixed;
+      color: white;
+      cursor: pointer;
+}
+
+.loadmore{
+  display: flex;
+  justify-content: center;
+  place-content: center;
+  a{
+    cursor: pointer;
+  }
+}
+
+
+.wrapper {
+
+  .card-container{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: grid;
+    position: relative;
+    width: 100%;
+    place-content: center;
+    height: auto;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 480px));
+
+    .tile-wrapper {
+      position: relative;
+    }
+
+    .tile {
+      height: 620px;
+      position: relative;
+      border-radius: 8px;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: cover;
+    }
+
+    .tile-layer {
+      background: $bg_gradient;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .upper-pnl {
+        height: 230px;
+      }
+
+      .lower-pnl {
+        height: calc(100% - 230px);
+
+        .content {
+          width: 100%;
+          color: $blog-font-color;
+          position: absolute;
+          bottom: 0px;
+          .title {
+            @include font(Montserrat-Medium);
+            font-size: 30px;
+            color: $blog-font-color;
+            text-decoration: none;
+            display: inline-block;
+            padding: 32px 32px 16px 32px;
+            // text-transform: capitalize;
+            width: calc(100% - 64px);
+          }
+
+          .hover-container {
+            display: none;
+            overflow: hidden;
+            max-height: 0px;
+            padding: 0px 32px 16px 32px;
+            .info {
+              margin-top: 16px;
+            }
+
+            .info,
+            .share-on {
+              margin-bottom: 16px;
+              @include font(Montserrat-SemiBoldItalic);
+              font-size: 14px;
+
+              span {
+                &:not(:last-of-type)::after {
+                  content: "|";
+                  padding: 0 5px;
+                }
+              }
+            }
+
+            .cont {
+              margin-bottom: 16px;
+              font-size: 20px;
+              @include font(Montserrat-Medium);
+              max-height: 73px;
+              overflow: hidden;
+            }
+
+            .readmore {
+              color: #F4B11C;
+              text-decoration: none;
+            }
+          }
+
+          .line-border {
+            height: 10px;
+            min-width: 0px;
+            background: $temp-hover;
+            visibility: hidden;
+            margin-top: 16px;
+          }
+        }
+
+        .content:hover .line-border {
+          min-width: 100%;
+          visibility: visible;
+          animation-name: slideInLeft;
+          animation-duration: 2s;
+        }
+      }
+    }
+
+    .tile-layer:hover .lower-pnl .content .hover-container {
+      max-height: 2000px;
+      animation-name: slideInUp;
+      animation-duration: 1s;
+      display: inline-block;
+    }
+
+    .tile-layer:hover .lower-pnl .content .title {
+      animation-name: fadeInUp;
+      animation-duration: 1s;
+    }
+
+    .tile-layer:hover .lower-pnl .content {
+      cursor: pointer;
+      background: $bg_hover_gradient;
+      animation-name: fadeInUp;
+      animation-duration: 1s;
+    }
+  }
+}
+
+@media screen and (max-width:767px) {
+  .wrapper {
+    .page {
+      .upper-container {
+        .inner-container {
+          .rightPnl {
+
+            .blog-info,
+            .read {
+              display: none;
+            }
+
+            .read-more-text {
+              display: inline-block;
+
+              a {
+                text-decoration: none;
+                color: $blog-font-color;
+                font-size: 10px;
+              }
+            }
+
+            .content {
+              font-size: 14px;
+              margin-top: 0px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+    }
+
+    .grid-panel {
+      grid-gap: 20px;
+      margin-top: 20px;
+
+      .tile-wrapper {
+        .tile {
+          height: 225px;
+        }
+
+        .tile-layer {
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+
+          .upper-pnl {
+            height: 140px;
+          }
+
+          .lower-pnl {
+            height: 85px;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+            border-radius: 8px;
+
+            .content {
+              font-size: 14px;
+              line-height: 24px;
+
+              .title {
+                font-size: 16px;
+                padding: 5px;
+                text-align: center;
+                @include font(Montserrat-Regular);
+                width: calc(100% - 10px);
+              }
+
+              .hover-container {
+
+                .info,
+                .share-on,
+                .cont,
+                .readmore {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+
+
+
+
+@-webkit-keyframes fadeInUp {
+  from {
+    // opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    // opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    // opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    // opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
