@@ -1,0 +1,21 @@
+.wrapper {
+  min-height: 100%;
+  padding-top: 50px;
+
+  &.nodata {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 85vh;
+  }
+
+}
+.building{
+  max-height: 563px;
+
+}
+
+.content{
+  padding: 2em 0;
+}

@@ -1,10 +1,10 @@
 {
-  "name": "disqus",
+  "name": "xyz",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href='/fake-disqus-comment/'",
+    "build": "ng build --prod --base-href='/xyzInc/'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="card-container" #subContent>
+    <div *ngFor="let media of medias" class="tile-wrapper card">
+      <img class="tile" [src]="media?.image" [alt]="media?.title" />
+      <div class="tile-layer">
+        <div class="upper-pnl"></div>
+        <div class="lower-pnl">
+          <div class="content">
+            <div class="hover-container">
+              <div class="info">
+                <span>{{ media?.title }}</span>
+              </div>
+            </div>
+            <div class="line-border"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="loadmore">
+    <a (click)="loadMore()">Load More...</a>
+  </div>
+</div>

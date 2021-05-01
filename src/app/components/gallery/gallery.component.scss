@@ -12,22 +12,13 @@
     transform: translateY(0);
   }
 }
-.create{
-      background-color: darkgreen;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      z-index: 10;
-      position: fixed;
-      color: white;
-      cursor: pointer;
-}
 
-.loadmore{
+.loadmore {
   display: flex;
   justify-content: center;
   place-content: center;
-  a{
+
+  a {
     cursor: pointer;
   }
 }
@@ -35,7 +26,7 @@
 
 .wrapper {
 
-  .card-container{
+  .card-container {
     margin-top: 60px;
     margin-bottom: 60px;
     display: grid;
@@ -44,19 +35,19 @@
     place-content: center;
     height: auto;
     grid-gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 480px));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
 
     .tile-wrapper {
       position: relative;
     }
 
     .tile {
-      height: 620px;
+      height: 400px;
       position: relative;
       border-radius: 8px;
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
     }
 
     .tile-layer {
@@ -69,19 +60,19 @@
       border-radius: 8px;
 
       .upper-pnl {
-        height: 230px;
+        height: 150px;
       }
 
       .lower-pnl {
-        height: calc(100% - 230px);
+        height: calc(100% - 150px);
 
         .content {
           width: 100%;
           color: $blog-font-color;
           position: absolute;
           bottom: 0px;
+
           .title {
-            @include font(Montserrat-Medium);
             font-size: 30px;
             color: $blog-font-color;
             text-decoration: none;
@@ -96,6 +87,7 @@
             overflow: hidden;
             max-height: 0px;
             padding: 0px 32px 16px 32px;
+
             .info {
               margin-top: 16px;
             }
@@ -103,7 +95,6 @@
             .info,
             .share-on {
               margin-bottom: 16px;
-              @include font(Montserrat-SemiBoldItalic);
               font-size: 14px;
 
               span {
@@ -117,7 +108,6 @@
             .cont {
               margin-bottom: 16px;
               font-size: 20px;
-              @include font(Montserrat-Medium);
               max-height: 73px;
               overflow: hidden;
             }
@@ -170,33 +160,7 @@
 @media screen and (max-width:767px) {
   .wrapper {
     .page {
-      .upper-container {
-        .inner-container {
-          .rightPnl {
 
-            .blog-info,
-            .read {
-              display: none;
-            }
-
-            .read-more-text {
-              display: inline-block;
-
-              a {
-                text-decoration: none;
-                color: $blog-font-color;
-                font-size: 10px;
-              }
-            }
-
-            .content {
-              font-size: 14px;
-              margin-top: 0px;
-              line-height: 24px;
-            }
-          }
-        }
-      }
     }
 
     .grid-panel {
@@ -229,7 +193,6 @@
                 font-size: 16px;
                 padding: 5px;
                 text-align: center;
-                @include font(Montserrat-Regular);
                 width: calc(100% - 10px);
               }
 

@@ -1,22 +1,36 @@
-<header>
-  D
-  <ng-container *ngIf="fakerDs?.currentUser$ | async">
-    <span class="pipe">|</span>
-    <span>Name: {{ (fakerDs?.currentUser$ | async)?.name }}</span>
-    <span class="pipe">|</span>
-    <span>Name: {{ (fakerDs?.currentUser$ | async)?.email }}</span>
-    <i
-      class="fa fa-2x fa-sign-out logout"
-      aria-hidden="true"
-      (click)="logout()"
-      title="Sign Out"
-    ></i>
-  </ng-container>
-  <ng-container *ngIf="!(fakerDs?.currentUser$ | async)">
-    <a (click)="fakerDs.loginAndBack()" title="Sign In">
-      <i class="fa fa-2x fa-sign-in logout" aria-hidden="true"></i>
-    </a>
-  </ng-container>
-</header>
-<router-outlet></router-outlet>
-<footer></footer>
+<div class="wrapper">
+  <header>
+    <a routerLink="/">XYZ</a>
+    <a routerLink="/about">About-Us</a>
+    <a routerLink="/media-gallery">Gallery</a>
+    <ng-container *ngIf="fakerDs?.currentUser$ | async">
+      <span class="pipe">|</span>
+      <span title="User Id: {{ (fakerDs?.currentUser$ | async)?.userid }}"
+        >Name: {{ (fakerDs?.currentUser$ | async)?.username }}</span
+      >
+      <i
+        class="fa fa-2x fa-sign-out logout"
+        aria-hidden="true"
+        (click)="logout()"
+        title="Sign Out"
+        >&nbsp;&nbsp;Sign Out</i
+      >
+    </ng-container>
+    <ng-container *ngIf="!(fakerDs?.currentUser$ | async)">
+      <i
+        (click)="fakerDs.loginAndBack()"
+        title="Sign In"
+        class="fa fa-2x fa-sign-in logout"
+        aria-hidden="true"
+      >
+        &nbsp;&nbsp; Sign In</i
+      >
+    </ng-container>
+  </header>
+  <div class="content-body">
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <div class="copyright">Copyright @2021 XYZ Inc. All Rights Reserved.</div>
+  </footer>
+</div>

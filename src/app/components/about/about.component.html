@@ -1,0 +1,15 @@
+<div class="wrapper" *ngIf="content; else noData">
+  <h1 style="text-align: center">About Us</h1>
+  <img
+    [src]="content?.backgroundImage"
+    [alt]="content?.contentTitle"
+    class="building"
+  />
+  <div [innerHtml]="content?.contentData" class="content"></div>
+</div>
+
+<ng-template #noData>
+  <div class="wrapper nodata">
+    <h1>No Content Available</h1>
+  </div>
+</ng-template>

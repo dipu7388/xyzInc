@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CheckUserLoginGuard } from './check-user-login.guard';
+import { AboutComponent } from './components/about/about.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { PostDetailComponent } from './components/post-detail/post-detail.component';
-import { PostComponent } from './components/post/post.component';
 
 const routes: Routes = [
   { path: 'login', pathMatch: 'prefix', component: LoginComponent },
-  { path: 'posts', pathMatch: 'prefix', component: PostComponent },
-  { path: 'posts/:id', component: PostDetailComponent },
-  { path: '', redirectTo: 'posts', pathMatch: 'prefix' },
+  { path: '', pathMatch: 'prefix', component: HomeComponent },
+  { path: 'about', pathMatch: 'prefix', component: AboutComponent },
+  {
+    path: 'media-gallery',
+    pathMatch: 'prefix',
+    component: GalleryComponent,
+    canActivate: [CheckUserLoginGuard],
+  },
 ];
 
 @NgModule({

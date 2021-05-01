@@ -1,0 +1,11 @@
+<div
+  class="wrapper"
+  [innerHtml]="contentText"
+  *ngIf="contentText; else noData"
+></div>
+
+<ng-template #noData>
+  <div class="wrapper nodata">
+    <h1>No Content Available</h1>
+  </div>
+</ng-template>
